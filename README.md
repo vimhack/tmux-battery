@@ -5,6 +5,7 @@ Enables displaying battery percentage and status icon in tmux status-right.
 ## Installation
 
 In order to read the battery status, this plugin depends on having one of the following applications installed:
+
 - pmset (MacOS only)
 - acpi
 - upower
@@ -57,18 +58,18 @@ set -g status-right '#{battery_status_bg} Batt: #{battery_icon} #{battery_percen
 
 ### Supported Format Strings
 
- - `#{battery_color_bg}` - will set the background color of the status bar based on the battery charge level if discharging and status otherwise
- - `#{battery_color_fg}` - will set the foreground color of the status bar based on the battery charge level if discharging and status otherwise
- - `#{battery_color_charge_bg}` - will set the background color of the status bar based solely on the battery charge level
- - `#{battery_color_charge_fg}` - will set the foreground color of the status bar based solely on the battery charge level
- - `#{battery_color_status_bg}` - will set the background color of the status bar based solely on the battery status
- - `#{battery_color_status_fg}` - will set the foreground color of the status bar based solely on the battery status
- - `#{battery_graph}` - will show battery percentage as a bar graph: ▁▂▄▆█
- - `#{battery_icon}` - will display a battery status/charge icon
- - `#{battery_icon_charge}` - will display a battery charge icon
- - `#{battery_icon_status}` - will display a battery status icon
- - `#{battery_percentage}` - will show battery percentage
- - `#{battery_remain}` - will show remaining time of battery charge\*
+- `#{battery_color_bg}` - will set the background color of the status bar based on the battery charge level if discharging and status otherwise
+- `#{battery_color_fg}` - will set the foreground color of the status bar based on the battery charge level if discharging and status otherwise
+- `#{battery_color_charge_bg}` - will set the background color of the status bar based solely on the battery charge level
+- `#{battery_color_charge_fg}` - will set the foreground color of the status bar based solely on the battery charge level
+- `#{battery_color_status_bg}` - will set the background color of the status bar based solely on the battery status
+- `#{battery_color_status_fg}` - will set the foreground color of the status bar based solely on the battery status
+- `#{battery_graph}` - will show battery percentage as a bar graph: ▁▂▄▆█
+- `#{battery_icon}` - will display a battery status/charge icon
+- `#{battery_icon_charge}` - will display a battery charge icon
+- `#{battery_icon_status}` - will display a battery status icon
+- `#{battery_percentage}` - will show battery percentage
+- `#{battery_remain}` - will show remaining time of battery charge\*
 
 \* These format strings can be further customized via options as described below.
 
@@ -76,13 +77,15 @@ set -g status-right '#{battery_status_bg} Batt: #{battery_icon} #{battery_percen
 
 `#{battery_remain}`
 
- - `@batt_remain_short`: 'true' / 'false' - This will shorten the time remaining (when charging or discharging) to `~H:MM`.
+- `@batt_remain_short`: 'true' / 'false' - This will shorten the time remaining (when charging or discharging) to `~H:MM`.
 
 ### Defaults
 
 #### Options
 
- - `@batt_remain_short`: 'false'
+- `@batt_remain_short`: 'false'
+
+- `@batt_update_interval`: 3
 
 #### Icons/Colors
 
@@ -94,55 +97,55 @@ Also, a note about the `@batt_color_...` options: `@batt_color_..._primary_...` 
 
 Level of Charge Colors:
 
- - primary tier 8 \[95%-100%] (`@batt_color_charge_primary_tier8`): '#00ff00'
- - primary tier 7 \[80%-95%) (`@batt_color_charge_primary_tier7`): '#55ff00'
- - primary tier 6 \[65%-80%) (`@batt_color_charge_primary_tier6`): '#aaff00'
- - primary tier 5 \[50%-65%) (`@batt_color_charge_primary_tier5`): '#ffff00'
- - primary tier 4 \[35%-50%) (`@batt_color_charge_primary_tier4`): '#ffc000'
- - primary tier 3 \[20%-35%) (`@batt_color_charge_primary_tier3`): '#ff8000'
- - primary tier 2 (5%-20%) (`@batt_color_charge_primary_tier2`): '#ff4000'
- - primary tier 1 \[0%-5%] (`@batt_color_charge_primary_tier1`): '#ff0000'
- - secondary tier 8 \[95%-100%] (`@batt_color_charge_secondary_tier8`): 'colour0'
- - secondary tier 7 \[80%-95%) (`@batt_color_charge_secondary_tier7`): 'colour0'
- - secondary tier 6 \[65%-80%) (`@batt_color_charge_secondary_tier6`): 'colour0'
- - secondary tier 5 \[50%-65%) (`@batt_color_charge_secondary_tier5`): 'colour0'
- - secondary tier 4 \[35%-50%) (`@batt_color_charge_secondary_tier4`): 'colour0'
- - secondary tier 3 \[20%-35%) (`@batt_color_charge_secondary_tier3`): 'colour0'
- - secondary tier 2 (5%-20%) (`@batt_color_charge_secondary_tier2`): 'colour0'
- - secondary tier 1 \[0%-5%] (`@batt_color_charge_secondary_tier1`): 'colour0'
+- primary tier 8 \[95%-100%] (`@batt_color_charge_primary_tier8`): '#00ff00'
+- primary tier 7 \[80%-95%) (`@batt_color_charge_primary_tier7`): '#55ff00'
+- primary tier 6 \[65%-80%) (`@batt_color_charge_primary_tier6`): '#aaff00'
+- primary tier 5 \[50%-65%) (`@batt_color_charge_primary_tier5`): '#ffff00'
+- primary tier 4 \[35%-50%) (`@batt_color_charge_primary_tier4`): '#ffc000'
+- primary tier 3 \[20%-35%) (`@batt_color_charge_primary_tier3`): '#ff8000'
+- primary tier 2 (5%-20%) (`@batt_color_charge_primary_tier2`): '#ff4000'
+- primary tier 1 \[0%-5%] (`@batt_color_charge_primary_tier1`): '#ff0000'
+- secondary tier 8 \[95%-100%] (`@batt_color_charge_secondary_tier8`): 'colour0'
+- secondary tier 7 \[80%-95%) (`@batt_color_charge_secondary_tier7`): 'colour0'
+- secondary tier 6 \[65%-80%) (`@batt_color_charge_secondary_tier6`): 'colour0'
+- secondary tier 5 \[50%-65%) (`@batt_color_charge_secondary_tier5`): 'colour0'
+- secondary tier 4 \[35%-50%) (`@batt_color_charge_secondary_tier4`): 'colour0'
+- secondary tier 3 \[20%-35%) (`@batt_color_charge_secondary_tier3`): 'colour0'
+- secondary tier 2 (5%-20%) (`@batt_color_charge_secondary_tier2`): 'colour0'
+- secondary tier 1 \[0%-5%] (`@batt_color_charge_secondary_tier1`): 'colour0'
 
 Status Colors:
 
- - primary charged (`@batt_color_status_primary_charged`): 'colour33'
- - primary charging (`@batt_color_status_primary_charging`): 'colour33'
- - primary discharging (`@batt_color_status_primary_discharging`): 'colour14'
- - primary attached (`@batt_color_status_primary_attached`): 'colour201'
- - primary unknown (`@batt_color_status_primary_unknown`): 'colour7'
- - secondary charged (`@batt_color_status_secondary_charged`): 'colour0'
- - secondary charging (`@batt_color_status_secondary_charging`): 'colour0'
- - secondary discharging (`@batt_color_status_secondary_discharging`): 'colour0'
- - secondary attached (`@batt_color_status_secondary_attached`): 'colour0'
- - secondary unknown (`@batt_color_status_secondary_unknown`): 'colour0'
+- primary charged (`@batt_color_status_primary_charged`): 'colour33'
+- primary charging (`@batt_color_status_primary_charging`): 'colour33'
+- primary discharging (`@batt_color_status_primary_discharging`): 'colour14'
+- primary attached (`@batt_color_status_primary_attached`): 'colour201'
+- primary unknown (`@batt_color_status_primary_unknown`): 'colour7'
+- secondary charged (`@batt_color_status_secondary_charged`): 'colour0'
+- secondary charging (`@batt_color_status_secondary_charging`): 'colour0'
+- secondary discharging (`@batt_color_status_secondary_discharging`): 'colour0'
+- secondary attached (`@batt_color_status_secondary_attached`): 'colour0'
+- secondary unknown (`@batt_color_status_secondary_unknown`): 'colour0'
 
 Level of Charge Icons:
 
- - tier 8 \[95%-100%] (`@batt_icon_charge_tier8`): '█'
- - tier 7 \[80%-95%) (`@batt_icon_charge_tier7`): '▇'
- - tier 6 \[65%-80%) (`@batt_icon_charge_tier6`): '▆'
- - tier 5 \[50%-65%) (`@batt_icon_charge_tier5`): '▅'
- - tier 4 \[35%-50%) (`@batt_icon_charge_tier4`): '▄'
- - tier 3 \[20%-35%) (`@batt_icon_charge_tier3`): '▃'
- - tier 2 (5%-20%) (`@batt_icon_charge_tier2`): '▂'
- - tier 1 \[0%-5%] (`@batt_icon_charge_tier1`): '▁'
+- tier 8 \[95%-100%] (`@batt_icon_charge_tier8`): '█'
+- tier 7 \[80%-95%) (`@batt_icon_charge_tier7`): '▇'
+- tier 6 \[65%-80%) (`@batt_icon_charge_tier6`): '▆'
+- tier 5 \[50%-65%) (`@batt_icon_charge_tier5`): '▅'
+- tier 4 \[35%-50%) (`@batt_icon_charge_tier4`): '▄'
+- tier 3 \[20%-35%) (`@batt_icon_charge_tier3`): '▃'
+- tier 2 (5%-20%) (`@batt_icon_charge_tier2`): '▂'
+- tier 1 \[0%-5%] (`@batt_icon_charge_tier1`): '▁'
 
 Status Icons:
 
- - charged (`@batt_icon_status_charged`): '🔌'
- - charged - OS X (`@batt_icon_status_charged`): '🔌'
- - charging (`@batt_icon_status_charging`): '🔌'
- - discharging (`@batt_icon_status_discharging`): '🔋'
- - attached (`@batt_icon_status_attached`): '⚠️'
- - unknown (`@batt_icon_status_unknown`): '?'
+- charged (`@batt_icon_status_charged`): '🔌'
+- charged - OS X (`@batt_icon_status_charged`): '🔌'
+- charging (`@batt_icon_status_charging`): '🔌'
+- discharging (`@batt_icon_status_discharging`): '🔋'
+- attached (`@batt_icon_status_attached`): '⚠️'
+- unknown (`@batt_icon_status_unknown`): '?'
 
 #### Changing the Defaults
 
@@ -166,7 +169,7 @@ set -g @batt_color_status_primary_charging '#3daee9'
 
 Don't forget to reload the tmux environment after you do this by either hitting `<prefix> + I` if tmux battery is installed via the tmux plugin manager, or by typing `tmux source-file ~/.tmux.conf` in the terminal if tmux battery is manually installed.
 
-*Warning*: The battery icon change most likely will not be instant. When you un-plug the power cord, it will take some time (15 - 60 seconds) for the icon to change. This depends on the `status-interval` tmux option. Setting it to 15 seconds should be good enough.
+_Warning_: The battery icon change most likely will not be instant. When you un-plug the power cord, it will take some time (15 - 60 seconds) for the icon to change. This depends on the `status-interval` tmux option. Setting it to 15 seconds should be good enough.
 
 ## Examples
 
@@ -237,25 +240,25 @@ This plugin is part of the [tmux-plugins](https://github.com/tmux-plugins) organ
 
 ### Maintainer
 
- - [Martin Beentjes](https://github.com/martinbeentjes)
+- [Martin Beentjes](https://github.com/martinbeentjes)
 
 ### Contributors
 
- - Adam Biggs
- - Aleksandar Djurdjic
- - Bruno Sutic
- - Caleb
- - Dan Cassidy
- - Diego Ximenes
- - Evan N-D
- - Jan Ahrens
- - Joey Geralnik
- - HyunJong (Joseph) Lee
- - Martin Beentjes
- - Mike Foley
- - Ryan Frantz
- - Seth Wright
- - Tom Levens
+- Adam Biggs
+- Aleksandar Djurdjic
+- Bruno Sutic
+- Caleb
+- Dan Cassidy
+- Diego Ximenes
+- Evan N-D
+- Jan Ahrens
+- Joey Geralnik
+- HyunJong (Joseph) Lee
+- Martin Beentjes
+- Mike Foley
+- Ryan Frantz
+- Seth Wright
+- Tom Levens
 
 ### License
 
