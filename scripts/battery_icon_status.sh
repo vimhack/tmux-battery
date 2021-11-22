@@ -55,7 +55,7 @@ print_icon_status() {
 main() {
     local update_interval=$(get_tmux_option $battery_update_interval_option $battery_update_interval_default)
     local current_time=$(date "+%s")
-    local previous_update=$(get_tmux_option "@previous_update_time")
+    local previous_update=$(get_tmux_option "@iconstatus_previous_update_time")
     local delta=$((current_time - previous_update))
 
     if [[ -z "$previous_update" ]] || [[ $delta -ge $update_interval ]]; then
@@ -66,12 +66,12 @@ main() {
         )
 
         if [ "$?" -eq 0 ]; then
-            set_tmux_option "@previous_update_time" "$current_time"
-            set_tmux_option "@previous_value" "$value"
+            set_tmux_option "@iconstatus_previous_update_time" "$current_time"
+            set_tmux_option "@iconstatus_previous_value" "$value"
         fi
     fi
 
-    echo -n "$(get_tmux_option "@previous_value")"
+    echo -n "$(get_tmux_option "@iconstatus_previous_value")"
 }
 
 main
